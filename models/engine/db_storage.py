@@ -78,6 +78,8 @@ class DBStorage:
     def get(self, cls, id):
         """Method to retrieve one object"""
 
+        if cls is None:
+            return 'Error cls is None'
         key = cls + '.' + id
         _list = self.all(cls)
         return _list[key]
