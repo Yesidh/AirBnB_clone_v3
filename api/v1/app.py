@@ -23,6 +23,8 @@ def close_session(exception=None):
 
 @app.errorhandler(404)
 def not_found(error):
+    """Method to handler an 404 error"""
+
     return make_response(jsonify({"error": "Not found"}), 404)
 
 if __name__ == '__main__':
