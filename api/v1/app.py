@@ -25,10 +25,10 @@ def close_session(exception=None):
 def not_found(error):
     """Method to handler an 404 error"""
 
-    return make_response(jsonify({"error": "Not found"}), 404)
+    return (jsonify({"error": "Not found"}), 404)
 
 if __name__ == '__main__':
     _host = os.getenv('HBNB_API_HOST')
     _port = os.getenv('HBNB_API_PORT')
 
-    app.run(host=_host, port=_port, threaded=True, debug=True)
+    app.run(host=_host, port=_port, threaded=True)
