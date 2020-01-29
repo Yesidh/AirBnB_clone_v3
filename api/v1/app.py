@@ -7,6 +7,7 @@ import os
 from models import storage
 from flask import Flask, Blueprint
 from api.v1.views import app_views
+from flask import make_response, jsonify
 
 app = Flask(__name__)
 app.register_blueprint(app_views)
@@ -19,6 +20,10 @@ def close_session(exception=None):
     '''
     storage.close()
 
+
+@app.errorhandler(404)
+def not_found(error):
+    return make_response(jsonify({"error": "Not found"}), 404)
 
 if __name__ == '__main__':
     _host = os.getenv('HBNB_API_HOST')
