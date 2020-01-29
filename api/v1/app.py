@@ -15,7 +15,7 @@ app.register_blueprint(app_views)
 @app.teardown_appcontext
 def close_session(exception=None):
     '''
-    close session method 
+    close session method
     '''
     storage.close()
 
@@ -24,4 +24,4 @@ if __name__ == '__main__':
     _host = os.getenv('HBNB_API_HOST')
     _port = os.getenv('HBNB_API_PORT')
 
-    app.run(host=_host, port=_port, threaded=True)
+    app.run(host=_host, port=_port, threaded=True, debug=True)
