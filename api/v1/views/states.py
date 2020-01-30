@@ -75,15 +75,18 @@ def put_state(state_id):
         abort(404)
     if not request.get_json():
         return make_response(jsonify({"error": "Not a JSON"}), 400)
-    obj = storage.all("State").get(key).to_dict()
+    obj = storage.get("State", state_id)
+    obj_dict = storage.all("State").get(key).to_dict()
     ignored_keys = ['id', 'created_at', 'updated_at']
-    obj2 = request.get_json()
-    for key, value in obj.items():
+    obj2_dict = request.get_json()
+    for key, value in obj_dict.items():
         if key in ignored_keys:
             pass
         else:
-            for k, v in obj2.items():
+            for k, v in obj2_dict.items():
                 if key == k:
-                    obj[key] = v
-    storage.save()
-    return make_response(obj, 200)
+                    setattr(obj, k, v)
+                else:
+                    pass
+    obj.save()
+    return make_response(obj.to_dict(), 200)
