@@ -85,7 +85,7 @@ def put_state(state_id):
             for k, v in obj2.items():
                 if key == k:
                     obj[key] = v
-                else:
-                    pass
+                'else:
+                    pass'
     storage.save()
     return make_response(obj, 200)
