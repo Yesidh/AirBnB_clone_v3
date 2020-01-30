@@ -39,14 +39,14 @@ def states_id(state_id):
 @app_views.route('/states/<string:state_id>', methods=['DELETE'],
                  strict_slashes=False)
 def del_states_id(state_id):
-    """Method to delete an state using the id"""
+    """Method to delete an state object using the DELETE method and his id"""
 
     key = 'State.' + state_id
     if key in storage.all("State").keys():
         obj = storage.get("State", state_id)
         storage.delete(obj)
         storage.save()
-        return jsonify({})
+        return make_response(jsonify({}), 200)
     else:
         abort(404)
 
@@ -67,7 +67,7 @@ def post_state():
 @app_views.route('/states/<string:state_id>', methods=['PUT'],
                  strict_slashes=False)
 def put_state(state_id):
-    """Method to creates an State object using POST"""
+    """Method to update an State object using PUT"""
 
     key = 'State.' + state_id
     if key not in storage.all("State").keys():
