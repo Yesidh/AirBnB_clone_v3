@@ -15,7 +15,7 @@ from flask import jsonify, abort, request, make_response
 from models.state import State
 
 
-@app_views.route('/states', strict_slashes=False)
+@app_views.route('/states', strict_slashes=False, methods=['GET'])
 def retrieve_states():
     """ Retrieve the list of all State objects"""
 
@@ -25,7 +25,8 @@ def retrieve_states():
     return jsonify(state_list)
 
 
-@app_views.route('/states/<string:state_id>', strict_slashes=False)
+@app_views.route('/states/<string:state_id>', strict_slashes=False,
+                 methods=['GET'])
 def states_id(state_id):
     """Method to retrieve an state using the id"""
 
