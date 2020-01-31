@@ -77,7 +77,7 @@ def put_user(user_id):
         return make_response(jsonify({"error": "Not a JSON"}), 400)
     obj = storage.get("User", amenity_id)
     obj_dict = storage.all("User").get(key).to_dict()
-    ignored_keys = ['id', 'created_at', 'updated_at']
+    ignored_keys = ['id', 'email', 'created_at', 'updated_at']
     obj2_dict = request.get_json()
     for key, value in obj_dict.items():
         if key in ignored_keys:
