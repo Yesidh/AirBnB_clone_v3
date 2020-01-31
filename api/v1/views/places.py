@@ -13,9 +13,7 @@ Updates a Place object: PUT /api/v1/places/<place_id>
 from api.v1.views import app_views
 from models import storage
 from flask import jsonify, abort, request, make_response
-from models.state import State
-from models.state import City
-from models.state import Place
+from models.place import Place
 
 
 @app_views.route('/cities/<string:city_id>/places', strict_slashes=False)
