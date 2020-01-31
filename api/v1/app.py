@@ -11,7 +11,7 @@ from flask import make_response, jsonify
 from flask_cors import cors
 
 app = Flask(__name__)
-cors = CORS(app, resources={r"/api/*": {"origins": "0.0.0.0"}})
+cors = CORS(app, resources={r"/api/*": {"origins": "http://localhost:port"}})
 app.register_blueprint(app_views)
 
 
