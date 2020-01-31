@@ -70,7 +70,7 @@ def post_user():
 def put_user(user_id):
     """Method to update an User object using PUT"""
 
-    key = 'User.' + amenity_id
+    key = 'User.' + user_id
     if key not in storage.all("User").keys():
         abort(404)
     if not request.get_json():
