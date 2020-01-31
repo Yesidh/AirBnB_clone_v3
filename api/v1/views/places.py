@@ -79,7 +79,7 @@ def post_place_city(city_id):
 
 @app_views.route('/places/<string:place_id>', methods=['PUT'],
                  strict_slashes=False)
-def put_city(place_id):
+def put_place(place_id):
     """Method to update a Place object using PUT"""
 
     if not request.get_json():
