@@ -12,7 +12,7 @@ Updates a State: PUT /api/v1/states/<state_id>
 from api.v1.views import app_views
 from models import storage
 from flask import jsonify, abort, request, make_response
-from models.users import User
+from models.user import User
 
 
 @app_views.route('/users', strict_slashes=False, methods=['GET'])
