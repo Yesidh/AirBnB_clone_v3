@@ -17,6 +17,7 @@ from models.state import State
 from models.state import City
 from models.state import Place
 
+
 @app_views.route('/cities/<string:city_id>/places', strict_slashes=False)
 def retrieve_places_from_city(city_id):
     """ Retrieves the list of all Place objects of a City"""
